@@ -13,6 +13,7 @@ RUN yum -y install bc bison cvs dejagnu expect flex gettext glibc-static libgomp
     cd /root/rpmbuild/ && \
     sed -i 's/libstdc++-static/libstdc++/' SPECS/binutils.spec && \
     rpmbuild -bb SPECS/binutils.spec && \
+    yum -y history undo last && \
     rm -rf SPECS SOURCES BUILD BUILDROOT
 
 
