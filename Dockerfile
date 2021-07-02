@@ -12,6 +12,7 @@ RUN yum -y install bc bison cvs dejagnu expect flex gettext glibc-static libgomp
     rpm -i binutils-$version.src.rpm && \
     rm -f binutils-$version.src.rpm &&  \
     cd /root/rpmbuild/ && \
+    sed -i '/%license/d' SPECS/binutils.spec && \
     sed -i 's/libstdc++-static/libstdc++/' SPECS/binutils.spec && \
     rpmbuild -bb SPECS/binutils.spec && \
     yum -y history undo last && \
